@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Introdução ao Vue JS</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js""></script>
+</head>
+<body>
+	<div id="app">
+		{{msg}}
+		<p v-bind:title="titulo">teste</p><!--transforma em uma tag dinamica-->
+		<p v-if="condicao">teste com if</p>
+
+		<p v-for="registro in registros">{{registro.titulo}}</p>
+
+		<button v-if="!clicou" v-on:click="usuarioClicou"> salvar</button>
+		<button v-if="clicou"  v-on:click="usuarioClicou"> aguarde..</button><br>		<!--capturando evento-->
+		<input type="text" v-model="usuario.nome"><!--manipula a variavel-->
+		<p>nome:{{usuario.nome}}</p>
+	</div>
+
+	<script type="text/javascript">
+		var app=new Vue({
+			el:"#app",
+			data:{
+				msg:'iniciando com Vue Js',
+				titulo:"teste com vbind",
+				condicao:false,
+				registros:[
+					{titulo:"registros1"},
+					{titulo:"registors2"}
+				],
+				clicou:false,
+				usuario:{nome:""}
+
+			},
+			//metodos
+			methods:{
+				usuarioClicou: function(){
+					this.clicou=!this.clicou;
+				}
+			}
+
+
+		});
+		
+	</script>
+
+</body>
+</html>

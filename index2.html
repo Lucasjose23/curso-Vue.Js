@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Componentes</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js""></script>
+</head>
+<body>
+	<div id="app">
+		<gui-titulo v-bind:titulo="meuTitulo"></gui-titulo><!--tag do componente e passando parametros pro componente-->
+		<input type="text" v-model="meuTitulo"><!--parametro dinamincp-->
+		<gui-tabela v-bind:titulos="['nomes','email']" v-bind:registros="registros"></gui-tabela>
+	
+	
+		
+	</div>
+
+	<script type="text/javascript">
+		//criando componentes
+		Vue.component('gui-titulo',{
+			props:['titulo'],//parametro
+			template:'<h2>{{titulo}}</h2>'
+
+		});
+
+		Vue.component('gui-tabela',{
+			props:['titulos','registros'],//parametro
+			template:'	<table>'+
+			'<thead>'+
+				'<tr>'+
+					'<th v-for="titulo in titulos">{{titulo}}</th>'+
+					
+				'</tr>'+
+			'</thead>'+
+			'<tbody>'+
+				'<tr v-for="registro in registros">'+
+					'<td>{{registro.titulo}}</td>'+
+					'<td>{{registro.descricao}}</td>'+
+
+				'</tr>'+
+
+		   '</tbody>'+
+
+		'</table>'
+
+		});
+
+
+		var app=new Vue({
+			el:"#app",
+			data:{
+				meuTitulo:"esse e o titulo",
+				registros:[
+				{titulo:'titulo 1',descricao:'descri1 '},                   
+				{titulo:'titulo 1',descricao:'descri1'}				
+				]
+			}
+		
+	
+
+		});
+		
+	</script>
+
+</body>
+</html>
