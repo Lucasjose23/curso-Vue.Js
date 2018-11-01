@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Introdução ao Vue JS</title>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+
+    <div id="app">
+
+      <gui-titulo v-bind:titulo="Formularios"></gui-titulo>
+      <p>Texto:{{texto}} </p>
+      <p>
+      	<input type="" v-model="texto">
+      </p>
+
+       <p>Textarea:{{txtarea}} </p>
+      <p>
+      	<textarea rows="8" cols="80" v-model="txtarea"></textarea>
+      </p>
+
+
+      <p>checkbox:</p>
+      <input type="checkbox" id="aceita" v-model="termos" >
+      <label for="aceita"> Aceitar</label>
+
+
+       <p>Multiplos checkbox:{{notificacoes}}</p>
+       <p>
+	      <input type="checkbox" value="email" id="recebere" v-model="notificacoes" >
+	      <label for="recebere"> Receber email</label>
+	      <input type="checkbox" value="sms" id="recebers" v-model="notificacoes" >
+	      <label for="recebers"> Receber sms</label>
+ 	    </p>
+
+ 	    <p>Radio:{{sexo}}</p>
+ 	   <p>
+ 	    	<input type="radio" id="masculino" value="M" v-model="sexo">
+ 	    	<label for="masculino">Masculino</label>
+
+ 	    	<input type="radio" id="feminino"  value="F" v-model="sexo">
+ 	    	<label for="feminino">Feminino</label>
+ 	    </p>
+
+
+ 	    <p>Select {{ano}}</p>
+ 	    <p>
+ 	    	<select v-model="ano">
+ 	    		<option disable>Escolha o ano</option>
+ 	    		<option disable value="2017">2017</option>
+ 	    		<option disable value="2018">2018</option>
+ 	    		<option disable value="2019">2019</option>
+ 	    	</select>
+ 	    </p>	
+
+
+
+ 	    <p>Multiple select {{cores}}</p>
+ 	    <p>
+ 	    	<select multiple v-model="cores">
+ 	    		<option disable>Escolha as cores</option>
+ 	    		<option disable >azul</option>
+ 	    		<option disable >verde</option>
+ 	    		<option disable>rosa</option>
+ 	    	</select>
+ 	    </p>	
+
+ 	    <p>Lazy:{{busca}}</p>
+ 	    <p><!--efeito de atrazo-->
+ 	    	<input type="text" v-model.lazy="busca">
+ 	    	
+ 	    </p>
+
+ 	    <p>Number: {{idade}}-{{ typeof idade}}</p>
+ 	    <p>
+ 	    	<input type="number" v-model.number="idade">
+ 	    </p>
+
+
+
+
+
+
+
+
+      
+
+	</div>
+
+    <script type="text/javascript">
+
+      Vue.component('gui-titulo',{
+        props:['titulo'],
+        template:'<h2>{{ titulo }}</h2>'
+      });
+
+    //mechendo com formularios
+
+      var app = new Vue({
+        el:"#app",
+        data:{
+         texto:'',
+         txtarea:'',
+         termos:true,
+         notificacoes:[],
+         sexo:'M',
+         ano:null,
+         cores:[],
+         busca:'',
+         idade:4
+          
+        },
+        
+
+      });
+
+
+    </script>
+
+  </body>
+</html>
+
+</body>
+</html>
